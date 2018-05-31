@@ -6,7 +6,7 @@ export const category_name = 'Air Conditioners'
 
 class App extends Component {
   state = {
-    average: 0,
+    average: undefined,
   }
 
   componentDidMount() {
