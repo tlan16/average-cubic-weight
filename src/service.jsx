@@ -1,4 +1,4 @@
-const BASE_URL = 'http://wp8m3he1wt.s3-website-ap-southeast-2.amazonaws.com'
+const BASE_URL = process.env.API_URL
 const API_ENDPOINT_START = '/api/products/1'
 
 async function fetchData(category) {
