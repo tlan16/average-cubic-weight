@@ -21,7 +21,11 @@ class App extends Component {
     return (
       <div>
         <h1>Average Weight:</h1>
-        <h2>{`${this.state.average}Kg`}</h2>
+        <h2>{
+          this.state.average
+            ? `${this.state.average}Kg`
+            : 'loading...'
+        }</h2>
       </div>
     )
   }
