@@ -2,8 +2,9 @@
     The larger one of actual weight and cubic weight counts.
 */
 export const FACTOR = 250
+export const WEIGHT_UNIT='kg'
 
-export const size = objects_of_category => {
+const calculate = objects_of_category => {
   return objects_of_category.reduce(
     (acc, value) => {
       const size = value.size
@@ -26,6 +27,11 @@ export const size = objects_of_category => {
   )
 }
 
-export const getSum = objects_of_category => size(objects_of_category).sum
-export const getQuatity = objects_of_category => size(objects_of_category).quantity
-export const getAverage = objects_of_category => size(objects_of_category).average
+export const getSum = objects_of_category => calculate(objects_of_category).sum
+export const getQuatity = objects_of_category => calculate(objects_of_category).quantity
+export const getAverage = (objects_of_category, floor = false) => {
+  const average = calculate(objects_of_category).average
+  return floor
+    ? Math.floor(average * 100) / 100
+    : average
+}

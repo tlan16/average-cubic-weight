@@ -1,6 +1,8 @@
 import React, {Component} from "react"
 import fetchData from "./services/category"
-import {getAverage} from "./calculations/size"
+import {getAverage, WEIGHT_UNIT} from "./calculations/size"
+
+export const category_name = 'Air Conditioners'
 
 class App extends Component {
   state = {
@@ -8,11 +10,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetchData("Air Conditioners")
+    fetchData(category_name)
       .then(objects_of_category => {
-        const average = getAverage(objects_of_category)
         this.setState({
-          average: Math.floor(average * 100) / 100,
+          average: getAverage(objects_of_category, true),
         })
       })
   }
@@ -23,7 +24,7 @@ class App extends Component {
         <h1>Average Weight:</h1>
         <h2>{
           this.state.average
-            ? `${this.state.average}Kg`
+            ? this.state.average + WEIGHT_UNIT
             : 'loading...'
         }</h2>
       </div>
