@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import fetchData from "./service"
-import calculation from "./calculation"
+import {calculation} from "./calculation"
 
 class App extends Component {
   state = {
