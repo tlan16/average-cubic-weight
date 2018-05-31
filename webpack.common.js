@@ -2,10 +2,14 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const CleanWebpackPlugin = require('clean-webpack-plugin')
+require("babel-polyfill")
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    app: [
+      'babel-polyfill',
+      './src/index.js',
+    ],
   },
   output: {
     filename: '[name].bundle.js',
