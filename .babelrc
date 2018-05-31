@@ -1,4 +1,18 @@
-{ 
-  "presets":["env","react"],
-  "plugins": ["transform-regenerator"]
- }
+{
+  "presets": [
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "defaults"
+          ]
+        }
+      }
+    ],
+    "react"
+  ],
+  "plugins": [
+    "transform-regenerator"
+  ]
+}
