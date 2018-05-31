@@ -1,5 +1,7 @@
 # Average Cubic Weight Front-end
 
+# language
+   Node v7.2.1
 # Install dependencies
 $ npm install
 
