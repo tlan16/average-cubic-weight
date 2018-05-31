@@ -3,7 +3,7 @@
 */
 export const FACTOR = 250
 
-export const calculation = objects_of_category => {
+export const size = objects_of_category => {
   return objects_of_category.reduce(
     (acc, value) => {
       const size = value.size
@@ -25,3 +25,7 @@ export const calculation = objects_of_category => {
     {sum: 0, quantity: 0, average: 0}
   )
 }
+
+export const getSum = objects_of_category => size(objects_of_category).sum
+export const getQuatity = objects_of_category => size(objects_of_category).quantity
+export const getAverage = objects_of_category => size(objects_of_category).average
