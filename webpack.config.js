@@ -29,4 +29,8 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   plugins: [htmlPlugin],
+  devServer: {
+    contentBase: path.resolve(__dirname, 'dist'),
+    hot: true,
+  },
 }
