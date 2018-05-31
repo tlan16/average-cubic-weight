@@ -3,11 +3,6 @@ const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const htmlPlugin = new HtmlWebPackPlugin({
-  template: "./src/index.html",
-  filename: "./index.html",
-})
-
 module.exports = {
   entry: {
     app: './src/index.js',
@@ -32,6 +27,9 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
+    new HtmlWebPackPlugin({
+      title: "Kogen Code Test",
+    }),
     new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
