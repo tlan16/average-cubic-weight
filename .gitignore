@@ -1,0 +1,27 @@
+# IDE
+.idea
+.vscode
+
+# Node
+/node_modules
+package-lock.json
+yarn.lock
+
+# Webpack
+.cache-loader
+
+# build
+/dist
+
+# Mac OS
+.DS_Store
+
+# Logs
+*.log
+
+# ESLint
+.eslintcache
+
+# Environment Files
+/.env
+/.env.prod
