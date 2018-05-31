@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import fetchData from "./service"
+import fetchData from "./services/category"
 import {getAverage} from "./calculations/size"
 
 class App extends Component {
