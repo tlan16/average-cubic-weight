@@ -1,37 +1,22 @@
-/*
-    The larger one of actual weight and cubic weight counts.
-*/
-export const FACTOR = 250
-export const WEIGHT_UNIT='kg'
+import {centimetresToMeters, getCubicWeight} from "../helpers"
 
-const calculate = objects_of_category => {
-  return objects_of_category.reduce(
+export const WEIGHT_UNIT = 'kg'
+
+export const getAverage = objects_of_category => {
+  const total = objects_of_category.reduce(
     (acc, value) => {
-      const size = value.size
-      const width = size.width
-      const length = size.length
-      const height = size.height
-      const actual_weight = value.weight / 1000
-      const cubic_weight = width * length * height / 1000000 * FACTOR
-      const weight =
-        cubic_weight > actual_weight ? cubic_weight : actual_weight
-      const sum = acc.sum
-      const quantity = acc.quantity
-      return {
-        sum: sum + weight,
-        quantity: quantity + 1,
-        average: (sum + weight) / (quantity + 1),
-      }
-    },
-    {sum: 0, quantity: 0, average: 0}
-  )
-}
+      const {
+        size: {
+          width: width_cm,
+          length: length_cm,
+          height: height_cm,
+        },
+      } = value
 
-export const getSum = objects_of_category => calculate(objects_of_category).sum
-export const getQuatity = objects_of_category => calculate(objects_of_category).quantity
-export const getAverage = (objects_of_category, floor = false) => {
-  const average = calculate(objects_of_category).average
-  return floor
-    ? Math.floor(average * 100) / 100
-    : average
+      const cubic_weight = getCubicWeight(centimetresToMeters(width_cm), centimetresToMeters(length_cm), centimetresToMeters(height_cm))
+      return acc + cubic_weight
+    }, 0
+  )
+
+  return parseFloat(total) / objects_of_category.length
 }
