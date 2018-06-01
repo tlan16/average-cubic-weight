@@ -1,12 +1,10 @@
 # Average Cubic Weight Front-end
 
-# language
-   Node v7.2.1
-# Install dependencies
-$ npm install
+## Install dependencies
+```yarn```
 
-# Run project on dev mode 
-$ npm run start
+## Run project on dev mode 
+```yarn start```
 
-# Build
-$ npm run build
+## Build
+```yarn build```
