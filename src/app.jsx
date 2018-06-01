@@ -24,7 +24,7 @@ class App extends Component {
         <h1>Average Weight:</h1>
         <h2>{
           this.state.average
-            ? this.state.average + WEIGHT_UNIT
+            ? `${this.state.average.toFixed(4)} ${WEIGHT_UNIT}`
             : 'loading...'
         }</h2>
       </div>
