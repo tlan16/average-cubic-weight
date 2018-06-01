@@ -4,8 +4,6 @@
 
 # Node
 /node_modules
-package-lock.json
-yarn.lock
 
 # Webpack
 .cache-loader
