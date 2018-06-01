@@ -1,6 +1,5 @@
 require("babel-polyfill")
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
@@ -35,7 +34,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       title: "Kogen Code Test",
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new Dotenv({
       safe: true,
     }),
