@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import fetchData from "./services/category"
 import {getAverageCubicWeight, WEIGHT_UNIT} from "./models/category"
 
-export const category_name = 'Air Conditioners'
+export const CATEGORY_NAME = 'Air Conditioners'
 
 class App extends Component {
   state = {
@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetchData(category_name)
+    fetchData(CATEGORY_NAME)
       .then(objects_of_category => {
         this.setState({
           average: getAverageCubicWeight(objects_of_category, true),
