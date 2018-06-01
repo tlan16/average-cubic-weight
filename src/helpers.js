@@ -3,3 +3,5 @@ export const getCubicWeight = (width, length, height, factor = 250) => (
 )
 
 export const centimetresToMeters = centimetres => parseFloat(centimetres) / 100
+
+export const gramsToKilograms = grams => parseFloat(grams) / 1000

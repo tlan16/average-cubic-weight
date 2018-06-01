@@ -1,20 +1,35 @@
-import {centimetresToMeters, getCubicWeight} from "../helpers"
+import {centimetresToMeters, getCubicWeight, gramsToKilograms} from "../helpers"
 
 export const WEIGHT_UNIT = 'kg'
 
+const toIsoUnits = objects_of_category =>
+  objects_of_category.reduce(
+    (acc, value) =>
+      acc.concat([{
+        ...value,
+        weight: gramsToKilograms(value.weight),
+        size: {
+          ...value.size,
+          width: centimetresToMeters(value.size.width),
+          length: centimetresToMeters(value.size.length),
+          height: centimetresToMeters(value.size.height),
+        },
+      }])
+    , []
+  )
+
 export const getAverageCubicWeight = objects_of_category => {
-  const total = objects_of_category.reduce(
+  const total = toIsoUnits(objects_of_category).reduce(
     (acc, value) => {
       const {
         size: {
-          width: width_cm,
-          length: length_cm,
-          height: height_cm,
+          width,
+          length,
+          height,
         },
       } = value
 
-      const cubic_weight = getCubicWeight(centimetresToMeters(width_cm), centimetresToMeters(length_cm), centimetresToMeters(height_cm))
-      return acc + cubic_weight
+      return acc + getCubicWeight(width, length, height)
     }, 0
   )
 
