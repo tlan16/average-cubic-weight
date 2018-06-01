@@ -2,6 +2,7 @@
 
 ## Configure `.env`
 ```copy .env.example .env```
+
 Update `.env`
 
 ## Install dependencies
