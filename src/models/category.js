@@ -2,7 +2,7 @@ import {centimetresToMeters, getCubicWeight} from "../helpers"
 
 export const WEIGHT_UNIT = 'kg'
 
-export const getAverage = objects_of_category => {
+export const getAverageCubicWeight = objects_of_category => {
   const total = objects_of_category.reduce(
     (acc, value) => {
       const {
