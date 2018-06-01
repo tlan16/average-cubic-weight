@@ -1,5 +1,9 @@
 # Average Cubic Weight Front-end
 
+## Configure `.env`
+```copy .env.example .env```
+Update `.env`
+
 ## Install dependencies
 ```yarn```
 
